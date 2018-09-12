@@ -25,7 +25,7 @@ class AtividadeController extends Controller
      */
     public function create()
     {
-        //
+        return view('atividade.create');
     }
 
     /**
@@ -45,9 +45,10 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function show(Atividade $atividade)
+    public function show($id)
     {
-        //
+      $atividade = Atividade::find($id);
+      return view('atividade.show',['atividade' => $atividade]);
     }
 
     /**
@@ -58,7 +59,8 @@ class AtividadeController extends Controller
      */
     public function edit(Atividade $atividade)
     {
-        //
+      $obj_atividade = Atividade::find($id);
+      return view('atividade.edit',['atividade' => $obj_atividade]);
     }
 
     /**
@@ -81,6 +83,6 @@ class AtividadeController extends Controller
      */
     public function destroy(Atividade $atividade)
     {
-        //
+        
     }
 }
